@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "399924119351",
+    "project_id": "orbisphoto-db5d6",
+    "storage_bucket": "orbisphoto-db5d6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:399924119351:android:cb2d36639543a9cd683cb2",
+        "android_client_info": {
+          "package_name": "com.example.orbisphoto"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "399924119351-uqopg0rjsj8h7akvteaf8j3v0pcmfgte.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.orbisphoto",
+            "certificate_hash": "65795a7dabe5052c71bf15e2e1970a7f439ff3d6"
+          }
+        },
+        {
+          "client_id": "399924119351-1lu0umch6ef9addt34ouae1of9j9q3j7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCh9NLPQQ47mtgv09mOhKEKGb3K4C5Z4xc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "399924119351-1lu0umch6ef9addt34ouae1of9j9q3j7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
