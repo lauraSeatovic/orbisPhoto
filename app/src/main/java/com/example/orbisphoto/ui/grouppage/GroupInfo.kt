@@ -74,13 +74,12 @@ fun GroupInfo(group: Group, darkColor: Color, onNewPostClick: () -> Unit) {
 }
 
 @Composable
-private fun GroupImage(image: String) {
+fun GroupImage(image: String) {
     Card(elevation = 10.dp, modifier = Modifier.padding(start = 30.dp).height(130.dp).width(130.dp)) {
         Image(
             painter = rememberAsyncImagePainter(image),
             contentDescription = "Group photo",
             modifier = Modifier
-
                 .fillMaxSize(),
             contentScale = ContentScale.Crop
         )
@@ -88,7 +87,7 @@ private fun GroupImage(image: String) {
 }
 
 @Composable
-private fun HeaderButton(text: String, color: Color, action: () -> Unit) {
+fun HeaderButton(text: String, color: Color, action: () -> Unit) {
     Button(
         onClick = { action() },
         colors = ButtonDefaults.buttonColors(backgroundColor = color, contentColor = Color.White),
@@ -100,7 +99,7 @@ private fun HeaderButton(text: String, color: Color, action: () -> Unit) {
 }
 
 @Composable
-private fun GroupName(name: String) {
+fun GroupName(name: String) {
     Text(
         text = name,
         fontSize = 25.sp,
@@ -109,7 +108,6 @@ private fun GroupName(name: String) {
         textAlign = TextAlign.Center,
         modifier = Modifier
             .fillMaxWidth()
-            .padding(vertical = 8.dp)
     )
 
 }

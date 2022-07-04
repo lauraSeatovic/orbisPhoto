@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
@@ -17,6 +18,8 @@ import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
 import com.example.orbisphoto.data.Post
 import com.example.orbisphoto.ui.mygroups.GroupInfoCard
+import com.example.orbisphoto.ui.mygroups.Title
+import com.example.orbisphoto.ui.theme.mainColorIndigo
 import com.example.orbisphoto.viewModels.MyGroupsViewModel
 import com.example.orbisphoto.viewModels.ProfileViewModel
 import com.example.orbisphoto.viewModels.RecentPostsViewModel
@@ -42,9 +45,11 @@ fun RecentPostsLayout(
     posts: List<Post>
 ) {
     Column (modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally){
+        Title(text = "Recent Posts", color = mainColorIndigo)
         LazyColumn(
-            modifier = Modifier.fillMaxHeight(0.8f),
-            horizontalAlignment = Alignment.CenterHorizontally
+            modifier = Modifier.fillMaxHeight(0.9f),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(20.dp)
         ) {
             items(posts.size) { item ->
                 FeedPostCard(posts[item])
@@ -60,15 +65,25 @@ fun FeedPostCard(post: Post) {
         elevation = 5.dp,
         shape = RoundedCornerShape(10.dp),
         modifier = Modifier
-            .height(300.dp)
-            .width(300.dp)
     ) {
         Log.i("image", post.image)
-        Image(
-            painter = rememberAsyncImagePainter(post.image),
-            contentDescription = null,
-            contentScale = ContentScale.Crop
-        )
+        Column() {
+            Image(
+                painter = rememberAsyncImagePainter(post.image),
+                contentDescription = null,
+                contentScale = ContentScale.Crop,
+                modifier = Modifier
+                    .height(300.dp)
+                    .width(300.dp)
+            )
+            Text(
+                text = post.description,
+                modifier = Modifier
+                    .height(80.dp)
+                    .padding(10.dp),
+                color = mainColorIndigo
+            )
+        }
     }
 
 }

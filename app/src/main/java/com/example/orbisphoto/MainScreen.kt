@@ -17,6 +17,8 @@ import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.compose.rememberNavController
 import com.example.orbisphoto.navigation.BottomBarScreen
 import com.example.orbisphoto.navigation.NavGraph
+import com.example.orbisphoto.ui.theme.mainColorIndigo
+import com.example.orbisphoto.ui.theme.mainColorIndigoLight
 import com.example.tmdb.navigation.RootNavGraph
 import com.google.firebase.auth.FirebaseAuth
 
@@ -67,23 +69,19 @@ fun RowScope.AddItem(
         label = {
             Text(
                 text = screen.title,
-                color = Color.Black
+                color = mainColorIndigo
             )
         },
         selected = selected,
         icon = {
             Icon(
-                imageVector = if (selected) {
-                    screen.selectedIcon
-                } else {
-                    screen.icon
-                },
+                imageVector = screen.icon,
                 contentDescription = null,
-                tint = Color.Black
+                tint = if(selected) mainColorIndigo else mainColorIndigoLight
             )
         },
         onClick = {
             navController.navigate(screen.route)
-        }
+        },
     )
 }

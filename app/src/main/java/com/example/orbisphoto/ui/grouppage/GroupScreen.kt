@@ -24,6 +24,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.orbisphoto.R
 import com.example.orbisphoto.data.Group
+import com.example.orbisphoto.ui.newpost.HeaderWave
 import com.example.orbisphoto.ui.theme.*
 import com.example.orbisphoto.viewModels.GroupViewModel
 import com.example.orbisphoto.viewModels.NewGroupViewModel
@@ -55,7 +56,7 @@ fun GroupPageLayout(
         Pair(Pink, DarkPink),
         Pair(Blue, DarkBlue),
         Pair(Purple, DarkPurple),
-        Pair(Peach, Peach)
+        Pair(Peach, DarkPeach)
     )
 
     val lightColor = options[group.color.toInt()].first
@@ -63,10 +64,17 @@ fun GroupPageLayout(
 
     Box(modifier = Modifier.background(Color.White)) {
         Log.i("mygroup", group.photos.toString())
-        ColoredWave(lightColor)
+        HeaderWave(group = group)
         Column() {
-
-            GroupInfo(group, darkColor, onNewPostClick)
+            Spacer(modifier = Modifier.height(200.dp))
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceEvenly
+            ) {
+                HeaderButton(text = "Info", darkColor, onNewPostClick)
+                HeaderButton(text = "New Post", darkColor, onNewPostClick)
+            }
+            Spacer(modifier = Modifier.height(19.dp))
             PhotoGrid(group.photos!!, onPhotoCardClick)
         }
     }

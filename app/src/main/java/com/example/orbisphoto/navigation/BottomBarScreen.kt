@@ -1,12 +1,12 @@
 package com.example.orbisphoto.navigation
 
+import androidx.compose.material.Icon
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
-import androidx.compose.material.icons.outlined.AccountBox
-import androidx.compose.material.icons.outlined.AccountCircle
-import androidx.compose.material.icons.outlined.List
-import androidx.compose.material.icons.outlined.Menu
+import androidx.compose.material.icons.outlined.*
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.painterResource
+import com.example.orbisphoto.R
 
 sealed class BottomBarScreen(
     val route: String,
@@ -24,13 +24,13 @@ sealed class BottomBarScreen(
     object Recent : BottomBarScreen(
         route = "recent_posts",
         title = "Recent",
-        icon = Icons.Outlined.AccountCircle,
-        selectedIcon = Icons.Filled.AccountCircle
+        icon = Icons.Outlined.Image ,
+        selectedIcon = Icons.Outlined.Image
     )
 
     object Profile : BottomBarScreen(
         route = "profile",
-        title = "profile",
+        title = "Profile",
         icon = Icons.Outlined.AccountCircle,
         selectedIcon = Icons.Filled.AccountCircle
     )

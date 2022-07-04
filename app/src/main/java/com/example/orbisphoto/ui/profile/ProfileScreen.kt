@@ -3,16 +3,14 @@ package com.example.orbisphoto.ui
 import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Button
-import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.OutlinedTextField
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.example.orbisphoto.ui.theme.mainColorIndigo
 import com.example.orbisphoto.viewModels.ProfileViewModel
 import com.google.firebase.auth.FirebaseAuth
 import org.koin.androidx.compose.viewModel
@@ -69,9 +67,9 @@ fun ProfileLayout(
         InputWidget(label = "Email", maxChar = 15, email, onEmailChange)
         InputWidget(label = "Password", maxChar = 15, password, onPasswordChange)
         InputWidget(label = "Username", maxChar = 15, username, onUsernameChange)
-        ActionButton(text = "Log In", color = Color.Blue, onLogInClick)
-        ActionButton(text = "Log out", color = Color.Blue, onSignOutClick)
-        ActionButton(text = "Sign Up", color = Color.Blue, onSignUpClick)
+        ActionButton(text = "Log In", color = mainColorIndigo, onLogInClick)
+        ActionButton(text = "Log out", color = mainColorIndigo, onSignOutClick)
+        ActionButton(text = "Sign Up", color = mainColorIndigo, onSignUpClick)
     }
 }
 
@@ -81,7 +79,13 @@ fun InputWidget(label: String, maxChar: Int, text: String, onValueChange: (Strin
     OutlinedTextField(
         value = text,
         onValueChange = { onValueChange(it) },
-        label = { Text(label) }
+        label = { Text(label) },
+        colors = TextFieldDefaults.textFieldColors(
+            focusedIndicatorColor = mainColorIndigo,
+            textColor = mainColorIndigo,
+            focusedLabelColor = mainColorIndigo,
+            cursorColor = mainColorIndigo
+        )
     )
 }
 

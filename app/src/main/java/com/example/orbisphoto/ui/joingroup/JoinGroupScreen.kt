@@ -12,6 +12,8 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.orbisphoto.ui.ActionButton
 import com.example.orbisphoto.ui.InputWidget
+import com.example.orbisphoto.ui.mygroups.Title
+import com.example.orbisphoto.ui.theme.mainColorIndigo
 import com.example.orbisphoto.viewModels.JoinGroupViewModel
 import com.example.orbisphoto.viewModels.NewGroupViewModel
 import org.koin.androidx.compose.viewModel
@@ -49,9 +51,10 @@ fun joinGroupLayout(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(10.dp)
     ) {
+        Title(text = "Join a New Group", mainColorIndigo)
         InputWidget(label = "Name", maxChar = 15, key, onKeyChange)
         InputWidget(label = "Password", maxChar = 15, password, onPasswordChange)
-        ActionButton(text = "Join", color = Color.Blue, onJoinClick)
+        ActionButton(text = "Join", color = mainColorIndigo, onJoinClick)
     }
 
 }
