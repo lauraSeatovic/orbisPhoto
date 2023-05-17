@@ -5,7 +5,7 @@ Android app for sharing photos in private groups
 
 ![image](https://github.com/lauraSeatovic/orbisPhoto/assets/101642657/fb68c676-5777-4ccf-b1b6-3a22b775a347)
 
-![image](https://github.com/lauraSeatovic/orbisPhoto/assets/101642657/51ab28e6-fda1-4126-bc19-e876fd7aa008)
+![image](https://github.com/lauraSeatovic/orbisPhoto/assets/101642657/0cd7c83e-7080-47fd-a142-79813e6ce731)
 
 ![image](https://github.com/lauraSeatovic/orbisPhoto/assets/101642657/f52f9a54-7f46-40da-9f29-da400a02f751)
 
