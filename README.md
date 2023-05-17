@@ -1,4 +1,4 @@
-# orbisPhoto
+# photoApp
 Android app for sharing photos in private groups
 
 ![image](https://github.com/lauraSeatovic/orbisPhoto/assets/101642657/d42bea27-11da-45f2-9f8b-85965cfa4a41)
