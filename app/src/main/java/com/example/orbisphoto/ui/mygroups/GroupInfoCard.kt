@@ -39,7 +39,8 @@ fun GroupInfoCard(group: GroupCard, onCardClick: (String) -> Unit) {
         Pair(Pink, DarkPink),
         Pair(Blue, DarkBlue),
         Pair(Purple, DarkPurple),
-        Pair(Peach, Peach))
+        Pair(Peach, Peach)
+    )
 
     val lightColor = options[group.color.toInt()].first
     val darkColor = options[group.color.toInt()].second
@@ -71,7 +72,12 @@ fun GroupInfoCard(group: GroupCard, onCardClick: (String) -> Unit) {
                 horizontalAlignment = Alignment.CenterHorizontally
 
             ) {
-                Text(text = group.name, fontWeight = FontWeight.Bold, fontSize = 20.sp, color = Color.White)
+                Text(
+                    text = group.name,
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 20.sp,
+                    color = Color.White
+                )
             }
         }
 

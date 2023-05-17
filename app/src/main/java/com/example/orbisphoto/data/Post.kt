@@ -2,7 +2,7 @@ package com.example.orbisphoto.data
 
 import java.util.*
 
-data class Post (
+data class Post(
     val postId: String?,
     val groupId: String,
     val description: String,

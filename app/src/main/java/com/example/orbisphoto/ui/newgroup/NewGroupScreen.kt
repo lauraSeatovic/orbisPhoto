@@ -58,7 +58,7 @@ fun NewGroupScreen(
         groupKey = groupKey,
         selectImage = { imageURI -> fileName = newGroupViewModel.uploadImage(imageURI) },
         selectedIndex = color,
-        onColorClick = {newColor -> color = newColor}
+        onColorClick = { newColor -> color = newColor }
 
     )
 }
@@ -108,7 +108,6 @@ fun NewGroupLayout(
         }
     }
 }
-
 
 
 @Composable

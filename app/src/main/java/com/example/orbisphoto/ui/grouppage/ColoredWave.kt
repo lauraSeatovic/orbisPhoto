@@ -53,7 +53,6 @@ fun ColoredWave(color: Color) {
 }
 
 
-
 fun Path.standardQuadFromTo(from: Offset, to: Offset) {
     quadraticBezierTo(
         from.x,

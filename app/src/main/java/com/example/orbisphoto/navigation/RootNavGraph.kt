@@ -27,8 +27,8 @@ fun RootNavGraph(rootNavHostController: NavHostController, auth: FirebaseAuth) {
         ) { entry ->
             GroupScreen(rootNavHostController, id = entry.arguments?.getString("id"))
         }
-        
-        composable(RootScreen.NewGroup.route){
+
+        composable(RootScreen.NewGroup.route) {
             NewGroupScreen(navController = rootNavHostController)
         }
 
@@ -39,7 +39,7 @@ fun RootNavGraph(rootNavHostController: NavHostController, auth: FirebaseAuth) {
             NewPostScreen(rootNavHostController, id = entry.arguments?.getString("id"))
         }
 
-        composable(RootScreen.JoinGroup.route){
+        composable(RootScreen.JoinGroup.route) {
             joinGroupScreen(navController = rootNavHostController)
         }
     }

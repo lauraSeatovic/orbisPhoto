@@ -9,17 +9,17 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.delay
 
-class ProfileViewModel(private val repository: RepositoryImpl) : ViewModel(){
+class ProfileViewModel(private val repository: RepositoryImpl) : ViewModel() {
 
-    fun signUp(email: String, password: String, username: String ){
+    fun signUp(email: String, password: String, username: String) {
         repository.signUp(email, password, username)
     }
 
-    fun signOut(){
+    fun signOut() {
         repository.signOut();
     }
 
-    fun logIn(email: String, password: String){
+    fun logIn(email: String, password: String) {
         repository.logIn(email, password)
     }
 

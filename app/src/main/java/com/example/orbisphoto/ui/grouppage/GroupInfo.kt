@@ -75,7 +75,10 @@ fun GroupInfo(group: Group, darkColor: Color, onNewPostClick: () -> Unit) {
 
 @Composable
 fun GroupImage(image: String) {
-    Card(elevation = 10.dp, modifier = Modifier.padding(start = 30.dp).height(130.dp).width(130.dp)) {
+    Card(elevation = 10.dp, modifier = Modifier
+        .padding(start = 30.dp)
+        .height(130.dp)
+        .width(130.dp)) {
         Image(
             painter = rememberAsyncImagePainter(image),
             contentDescription = "Group photo",

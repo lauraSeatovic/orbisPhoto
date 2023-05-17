@@ -32,8 +32,8 @@ fun joinGroupScreen(
         password,
         onKeyChange = { newKey -> key = newKey },
         onPasswordChange = { newPass -> password = newPass },
-        onJoinClick = {joinGroupViewModel.joinGroup(key, password)}
-        )
+        onJoinClick = { joinGroupViewModel.joinGroup(key, password) }
+    )
 }
 
 @Composable

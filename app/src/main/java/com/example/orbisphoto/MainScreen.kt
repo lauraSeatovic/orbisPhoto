@@ -77,7 +77,7 @@ fun RowScope.AddItem(
             Icon(
                 imageVector = screen.icon,
                 contentDescription = null,
-                tint = if(selected) mainColorIndigo else mainColorIndigoLight
+                tint = if (selected) mainColorIndigo else mainColorIndigoLight
             )
         },
         onClick = {

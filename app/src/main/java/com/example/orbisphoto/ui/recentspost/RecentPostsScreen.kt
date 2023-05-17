@@ -44,7 +44,7 @@ fun RecentPostsScreen(
 fun RecentPostsLayout(
     posts: List<Post>
 ) {
-    Column (modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally){
+    Column(modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
         Title(text = "Recent Posts", color = mainColorIndigo)
         LazyColumn(
             modifier = Modifier.fillMaxHeight(0.9f),

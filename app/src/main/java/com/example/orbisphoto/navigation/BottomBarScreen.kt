@@ -24,7 +24,7 @@ sealed class BottomBarScreen(
     object Recent : BottomBarScreen(
         route = "recent_posts",
         title = "Recent",
-        icon = Icons.Outlined.Image ,
+        icon = Icons.Outlined.Image,
         selectedIcon = Icons.Outlined.Image
     )
 

@@ -21,7 +21,7 @@ fun ProfileScreen(
     navController: NavController,
     auth: FirebaseAuth
 ) {
-    if(auth.currentUser != null) {
+    if (auth.currentUser != null) {
         auth.currentUser!!.email?.let { Log.i("user", it) }
     }
     var email by remember { mutableStateOf("") }
@@ -33,14 +33,16 @@ fun ProfileScreen(
         email,
         password,
         username,
-        onLogInClick = {profileViewModel.logIn(email, password)
+        onLogInClick = {
+            profileViewModel.logIn(email, password)
         },
-        onSignOutClick = {profileViewModel.signOut()},
-        onSignUpClick = {profileViewModel.signUp(email, password, username)
+        onSignOutClick = { profileViewModel.signOut() },
+        onSignUpClick = {
+            profileViewModel.signUp(email, password, username)
         },
         onEmailChange = { newEmail -> email = newEmail },
         onPasswordChange = { newPass -> password = newPass },
-        onUsernameChange = {newUsername -> username = newUsername}
+        onUsernameChange = { newUsername -> username = newUsername }
     )
 }
 

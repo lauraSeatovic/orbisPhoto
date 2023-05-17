@@ -28,7 +28,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colors.background
                 ) {
                     val rootNavController = rememberNavController()
-                    val auth by lazy{Firebase.auth}
+                    val auth by lazy { Firebase.auth }
                     RootNavGraph(rootNavHostController = rootNavController, auth)
                 }
             }

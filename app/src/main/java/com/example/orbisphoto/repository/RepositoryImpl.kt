@@ -49,15 +49,17 @@ class RepositoryImpl() : Repository {
 
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 Log.i("groups", groups.toString())
-                val items = dataSnapshot.children.filter { groups.contains(it.child("groupId").value.toString()) }.map {
-                    Log.i("cont", it.child("groupId").value.toString())
-                    GroupCard(
-                        it.child("groupId").value.toString(),
-                        it.child("name").value.toString(),
-                        it.child("image").value.toString(),
-                        it.child("color").value.toString()
-                    )
-                }
+                val items =
+                    dataSnapshot.children.filter { groups.contains(it.child("groupId").value.toString()) }
+                        .map {
+                            Log.i("cont", it.child("groupId").value.toString())
+                            GroupCard(
+                                it.child("groupId").value.toString(),
+                                it.child("name").value.toString(),
+                                it.child("image").value.toString(),
+                                it.child("color").value.toString()
+                            )
+                        }
                 this@callbackFlow.trySendBlocking(items)
             }
         }
@@ -126,7 +128,7 @@ class RepositoryImpl() : Repository {
         refStorage.child("images/${image}").downloadUrl.addOnSuccessListener {
             val group = Group(groupId, name, password, it.toString(), color.toString(), null)
             ref.child("groups").child(groupId!!).setValue(group)
-        }.addOnCompleteListener{
+        }.addOnCompleteListener {
             this.joinGroup(groupId!!, password)
         }
         return groupId!!
@@ -161,21 +163,22 @@ class RepositoryImpl() : Repository {
 
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val items = mutableListOf<Post>()
-                dataSnapshot.children.filter { groups.contains(it.child("groupId").value.toString()) }.forEach {
-                    items.addAll(it.child("posts").children.filter { post ->
-                        post.child("date").value.toString() == SimpleDateFormat(
-                            "dd/M/yyyy"
-                        ).format(Date())
-                    }.map { post ->
-                        Post(
-                            post.child("postId").value.toString(),
-                            post.child("groupId").value.toString(),
-                            post.child("description").value.toString(),
-                            post.child("image").value.toString(),
-                            post.child("date").value.toString()
-                        )
-                    })
-                }
+                dataSnapshot.children.filter { groups.contains(it.child("groupId").value.toString()) }
+                    .forEach {
+                        items.addAll(it.child("posts").children.filter { post ->
+                            post.child("date").value.toString() == SimpleDateFormat(
+                                "dd/M/yyyy"
+                            ).format(Date())
+                        }.map { post ->
+                            Post(
+                                post.child("postId").value.toString(),
+                                post.child("groupId").value.toString(),
+                                post.child("description").value.toString(),
+                                post.child("image").value.toString(),
+                                post.child("date").value.toString()
+                            )
+                        })
+                    }
                 Log.i("items", items.toString())
                 Log.i("date", Date().toString())
                 this@callbackFlow.trySendBlocking(items)
@@ -221,36 +224,38 @@ class RepositoryImpl() : Repository {
 
     }
 
-    fun joinGroup(key: String, password: String){
+    fun joinGroup(key: String, password: String) {
         ref.child("groups").child(key).get().addOnSuccessListener {
-            if((it.child("groupId").value == key) and (it.child("password").value == password)){
+            if ((it.child("groupId").value == key) and (it.child("password").value == password)) {
                 Log.i("firebase", "Match")
-                ref.child("users").child(auth.currentUser!!.uid).child("groups").get().addOnCompleteListener(){ task ->
-                    if (task.isSuccessful) {
-                        ref.child("users").child(auth.currentUser!!.uid).child("groups").child(task.result.childrenCount.toString()).setValue(key)
-                        this.myGroups()
+                ref.child("users").child(auth.currentUser!!.uid).child("groups").get()
+                    .addOnCompleteListener() { task ->
+                        if (task.isSuccessful) {
+                            ref.child("users").child(auth.currentUser!!.uid).child("groups")
+                                .child(task.result.childrenCount.toString()).setValue(key)
+                            this.myGroups()
 
-                    } else {
-                        // If sign in fails, display a message to the user.
-                        Log.w("signup", "createUserWithEmail:failure", task.exception)
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w("signup", "createUserWithEmail:failure", task.exception)
+                        }
                     }
-                }
-            }else{
+            } else {
                 Log.i("firebase", "Group does not exist")
             }
-        }.addOnFailureListener{
+        }.addOnFailureListener {
             Log.e("firebase", "Error getting data", it)
         }
 
     }
 
-    fun myGroups(){
+    fun myGroups() {
         groups = mutableListOf()
-        if(auth.currentUser != null) {
+        if (auth.currentUser != null) {
             ref.child("users").child(auth.currentUser!!.uid).child("groups").get()
                 .addOnCompleteListener() { task ->
                     if (task.isSuccessful) {
-                        groups.addAll(if(task.result.value == null) emptyList() else  task.result.value as List<String>)
+                        groups.addAll(if (task.result.value == null) emptyList() else task.result.value as List<String>)
                         Log.i("mygroups", groups.toString())
 
                     } else {

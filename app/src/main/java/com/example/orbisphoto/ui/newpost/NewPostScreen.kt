@@ -71,10 +71,15 @@ fun NewPostLayout(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(10.dp)
-    ){
+    ) {
         Spacer(modifier = Modifier.height(240.dp))
         PhotoPicker(selectImage = selectImage, darkColor)
-        DescriptionBox(text = description, onValueChange =onDescriptionChange, lightColor, darkColor)
+        DescriptionBox(
+            text = description,
+            onValueChange = onDescriptionChange,
+            lightColor,
+            darkColor
+        )
         ActionButton(text = "Post", color = darkColor, onPostClick)
     }
 }
@@ -96,16 +101,21 @@ fun HeaderWave(group: Group) {
             .fillMaxWidth()
             .height(180.dp),
         verticalAlignment = Alignment.CenterVertically
-    ){
+    ) {
         GroupImage(image = group.image)
         GroupName(name = group.name)
     }
-    
-        
+
+
 }
 
 @Composable
-fun DescriptionBox(text: String, onValueChange: (String) -> Unit, lightColor: Color, darkColor: Color) {
+fun DescriptionBox(
+    text: String,
+    onValueChange: (String) -> Unit,
+    lightColor: Color,
+    darkColor: Color
+) {
 
     OutlinedTextField(
         value = text,

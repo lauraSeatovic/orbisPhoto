@@ -12,7 +12,8 @@ import com.google.firebase.storage.FirebaseStorage
 import java.util.*
 
 class NewGroupViewModel(private val repository: RepositoryImpl) : ViewModel() {
-    fun newGroup(name: String, password: String, image: String, color: Int): String = repository.saveGroup(name, password, image, color)
+    fun newGroup(name: String, password: String, image: String, color: Int): String =
+        repository.saveGroup(name, password, image, color)
 
     fun uploadImage(fileUri: Uri): String = repository.uploadImageToFirebase(fileUri)
 }
